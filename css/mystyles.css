@@ -1,0 +1,20 @@
+.backToTop {
+    padding: 5px 10px;  /* Smaller padding */
+    font-size: 14px;     /* Smaller font size */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+}
+
+a[href="#edu"]:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+a[href="#exp"]:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+a[href="#sai"]:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}
+a[href="#l&s"]:hover {
+    text-decoration: underline; /* Optional: Adds underline on hover */
+}

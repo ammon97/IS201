@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Ammon Davies - Home</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/mystyles.css" rel="stylesheet" />
+    <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Ammon Davies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Hi, my name is Ammon.</h1>
+                        <span class="subheading">See what I do below</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header><br><br><br><br>
+
+    <section id="purpose-reveal" class="container my-5 text-center">
+        <h2>Purpose of This Website</h2>
+        <button class="btn btn-primary" onclick="openPurposeModal()">What is the point of this website?</button>
+    </section><br><br><br><br>
+
+    <div id="purposeModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closePurposeModal()">&times;</span>
+            <h2>Welcome to Ammon Davies' Interactive Portfolio</h2>
+            <p>This site is designed to showcase my skills, experiences, and projects in what I hope is an engaging and interactive way. Below, you’ll find tools like a CAPM Calculator, and other resources that demonstrate my interests and abilities.</p>
+            <p>Please explore, and thanks for visiting!</p>
+        </div>
+    </div>
+
+    <section id="capm-calculator" class="container my-5">
+        <h2 class="text-center">CAPM Calculator</h2>
+        <p class="text-center">Calculate the Expected Return using the Capital Asset Pricing Model (CAPM).</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <label for="riskFreeRate" class="form-label">Risk-Free Rate (Rf %):</label>
+                <input type="number" id="riskFreeRate" class="form-control" placeholder="e.g., 3" step="0.01">
+            </div>
+            <div class="col-md-6">
+                <label for="beta" class="form-label">Beta (β):</label>
+                <input type="number" id="beta" class="form-control" placeholder="e.g., 1.2" step="0.01">
+            </div>
+            <div class="col-md-6">
+                <label for="marketReturn" class="form-label">Expected Market Return (Rm %):</label>
+                <input type="number" id="marketReturn" class="form-control" placeholder="e.g., 8" step="0.01">
+            </div>
+            <div class="text-center my-4">
+                <button class="btn btn-primary" onclick="calculateCAPM()">Calculate Expected Return</button>
+            </div>
+            <div id="result" class="text-center mt-4" style="font-weight: bold;"></div>
+        </div>
+        <div class="my-4">
+            <h4>How Investors Use CAPM</h4>
+            <p>If the expected return from CAPM is <strong>higher</strong> than the actual or required return, the investment might be <strong>undervalued</strong>.</p>
+            <p>If the expected return is <strong>lower</strong>, the investment might be <strong>overvalued</strong> relative to its risk.</p>
+        </div>
+    </section>
+    <section id="capm-explanation" class="container my-5">
+        <h4>Understanding the CAPM Model</h4>
+        <div class="my-4">
+            <p><strong>Risk-Free Rate (Rf):</strong> Acts as the baseline return you’d expect without taking any risk, such as from a government bond.</p>
+            <p><strong>Beta (β):</strong> Measures the asset's volatility compared to the market.</p>
+            <ul>
+                <li><strong>Beta = 1:</strong> The asset's price moves with the market.</li>
+                <li><strong>Beta > 1:</strong> The asset is more volatile than the market.</li>
+                <li><strong>Beta &lt; 1:</strong> The asset is less volatile than the market.</li>
+            </ul>
+            <p><strong>Market Risk Premium (Rm):</strong> Represents the extra return investors expect for choosing a riskier asset over a risk-free asset.</p>
+            <p class="text-center"><strong>Expected Return (ER)</strong>=Rf+β×(Rm​−Rf)</p>
+        </div>
+    </section>
+
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="https://www.linkedin.com/in/ammon-davies" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="https://github.com/yourusername" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Ammon Davies 2024</div><br>
+                    <a href="#top" class="btn btn-info backToTop">Back to top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openPurposeModal() {
+            document.getElementById("purposeModal").style.display = "flex";
+        }
+
+        function closePurposeModal() {
+            document.getElementById("purposeModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("purposeModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function calculateCAPM() {
+            const rf = parseFloat(document.getElementById("riskFreeRate").value);
+            const beta = parseFloat(document.getElementById("beta").value);
+            const rm = parseFloat(document.getElementById("marketReturn").value);
+
+            if (isNaN(rf) || isNaN(beta) || isNaN(rm)) {
+                document.getElementById("result").innerText = "Please enter valid numbers for all fields.";
+                return;
+            }
+
+            const expectedReturn = rf + beta * (rm - rf);
+            document.getElementById("result").innerText = `Expected Return: ${expectedReturn.toFixed(2)}%`;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
